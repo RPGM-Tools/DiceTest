@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Vite + TS</title>
+  <script type="module" crossorigin src="/assets/index-D5kruwuF.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<div class="bg"></div>
+		<div class="dice-grid">
+			<div data-swapy-slot="1">
+				<canvas class="dice" data-swapy-item="1" data-dice-type="d4"></canvas>
+			</div>
+			<div data-swapy-slot="2">
+				<canvas class="dice" data-swapy-item="2" data-dice-type="d6"></canvas>
+			</div>
+			<div data-swapy-slot="3">
+				<canvas class="dice" data-swapy-item="3" data-dice-type="d8"></canvas>
+			</div>
+			<div data-swapy-slot="4">
+				<canvas class="dice" data-swapy-item="4" data-dice-type="d12"></canvas>
+			</div>
+			<div data-swapy-slot="5">
+				<canvas class="dice" data-swapy-item="5" data-dice-type="d20"></canvas>
+			</div>
+			<div data-swapy-slot="6">
+				<canvas class="dice" data-swapy-item="6" data-dice-type="d4"></canvas>
+			</div>
+			<div data-swapy-slot="7">
+				<canvas class="dice" data-swapy-item="7" data-dice-type="d6"></canvas>
+			</div>
+			<div data-swapy-slot="8">
+				<canvas class="dice" data-swapy-item="8" data-dice-type="d8"></canvas>
+			</div>
+			<div data-swapy-slot="9">
+				<canvas class="dice" data-swapy-item="9" data-dice-type="d12"></canvas>
+			</div>
+			<div data-swapy-slot="10">
+				<canvas class="dice" data-swapy-item="10" data-dice-type="d20"></canvas>
+			</div>
+		</div>
+	</div>
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+		}
+
+		div {
+			display: inline-block;
+		}
+
+		#app {
+			display: flex;
+			justify-content: center;
+		}
+
+		.dice-grid {
+			display: grid;
+		}
+
+		.bg {
+			position: absolute;
+			background: #00000055;
+			height: 100%;
+			width: 100%;
+			z-index: -1;
+			background-position: center;
+			filter: sepia() hue-rotate(220deg) brightness(100%);
+		}
+
+		.dice {
+			width: 128px;
+			height: 128px;
+			transition: filter 0.2s;
+			cursor: pointer;
+		}
+
+		[data-swapy-dragging],
+		.dice:active {
+			filter: brightness(125%);
+		}
+
+		@media screen and (min-width: 699px) {
+			.dice-grid {
+				grid-template-columns: repeat(5, 1fr);
+			}
+		}
+
+		@media screen and (max-width: 699px) {
+			.dice-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	</style>
+</body>
+
+</html>
