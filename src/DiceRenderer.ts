@@ -131,7 +131,7 @@ class DiceRenderer {
 						(targetX - this.diceMesh.rotation.x) * 0.05
 					this.diceMesh.rotation.y +=
 						(targetY - this.diceMesh.rotation.y) * 0.05
-					const camTarget = 13
+					const camTarget = 15
 					this.camera.position.z +=
 						(camTarget - this.camera.position.z) * 0.04
 					break
