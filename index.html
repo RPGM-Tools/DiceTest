@@ -6,42 +6,33 @@
 	<link rel="icon" type="image/svg+xml" href="/DiceTest/vite.svg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Vite + TS</title>
-  <script type="module" crossorigin src="/DiceTest/assets/index-CB-znEUo.js"></script>
+  <script type="module" crossorigin src="/DiceTest/assets/index-BE2yWh0p.js"></script>
 </head>
 
 <body>
 	<div id="app">
-		<div class="bg"></div>
 		<div class="dice-grid">
+			<canvas id="dice-canvas"></canvas>
 			<div data-swapy-slot="1">
-				<canvas class="dice" data-swapy-item="1" data-dice-type="d4"></canvas>
+				<div class="dice" data-dice-type="d4" data-swapy-item="1"></div>
 			</div>
 			<div data-swapy-slot="2">
-				<canvas class="dice" data-swapy-item="2" data-dice-type="d6"></canvas>
+				<div class="dice" data-dice-type="d6" data-swapy-item="2"></div>
 			</div>
 			<div data-swapy-slot="3">
-				<canvas class="dice" data-swapy-item="3" data-dice-type="d8"></canvas>
+				<div class="dice" data-dice-type="d8" data-swapy-item="3"></div>
 			</div>
 			<div data-swapy-slot="4">
-				<canvas class="dice" data-swapy-item="4" data-dice-type="d12"></canvas>
+				<div class="dice" data-dice-type="d12" data-swapy-item="4"></div>
 			</div>
 			<div data-swapy-slot="5">
-				<canvas class="dice" data-swapy-item="5" data-dice-type="d20"></canvas>
+				<div class="dice" data-dice-type="d20" data-swapy-item="5"></div>
 			</div>
 			<div data-swapy-slot="6">
-				<canvas class="dice" data-swapy-item="6" data-dice-type="d4"></canvas>
+				<div class="dice" data-dice-type="d4" data-swapy-item="6"></div>
 			</div>
 			<div data-swapy-slot="7">
-				<canvas class="dice" data-swapy-item="7" data-dice-type="d6"></canvas>
-			</div>
-			<div data-swapy-slot="8">
-				<canvas class="dice" data-swapy-item="8" data-dice-type="d8"></canvas>
-			</div>
-			<div data-swapy-slot="9">
-				<canvas class="dice" data-swapy-item="9" data-dice-type="d12"></canvas>
-			</div>
-			<div data-swapy-slot="10">
-				<canvas class="dice" data-swapy-item="10" data-dice-type="d20"></canvas>
+				<div class="dice" data-dice-type="d6" data-swapy-item="7"></div>
 			</div>
 		</div>
 	</div>
@@ -52,9 +43,19 @@
 			margin: 0;
 		}
 
-		div {
-			display: inline-block;
+		#dice-canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+			pointer-events: none;
 		}
+
+		div.dice {
+			width: 256px;
+			height: 256px;
+		}
+
+		div {}
 
 		#app {
 			display: flex;
@@ -62,17 +63,9 @@
 		}
 
 		.dice-grid {
-			display: grid;
-		}
-
-		.bg {
-			position: absolute;
-			background: #00000055;
-			height: 100%;
-			width: 100%;
-			z-index: -1;
-			background-position: center;
-			filter: sepia() hue-rotate(220deg) brightness(100%);
+			position: relative;
+			display: flex;
+			flex-wrap: wrap;
 		}
 
 		.dice {
@@ -88,15 +81,15 @@
 		}
 
 		@media screen and (min-width: 699px) {
-			.dice-grid {
-				grid-template-columns: repeat(5, 1fr);
-			}
+			/* .dice-grid { */
+			/* 	grid-template-columns: repeat(5, 1fr); */
+			/* } */
 		}
 
 		@media screen and (max-width: 699px) {
-			.dice-grid {
-				grid-template-columns: repeat(2, 1fr);
-			}
+			/* .dice-grid { */
+			/* 	grid-template-columns: repeat(2, 1fr); */
+			/* } */
 		}
 	</style>
 </body>
