@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-		"publish": "gh-pages -d dist"
+    "publish": "gh-pages -d dist"
   },
   "devDependencies": {
     "@types/three": "^0.173.0",
@@ -16,6 +16,7 @@
     "vite": "^6.1.0"
   },
   "dependencies": {
+    "gsap": "^3.12.7",
     "swapy": "^1.0.5",
     "three": "^0.173.0",
     "three-subdivide": "^1.1.5"

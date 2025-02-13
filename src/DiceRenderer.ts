@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import GemShader from './GemShader.ts'
 
 class DiceRenderer {
 	private static diceGeometries: Record<string, THREE.BufferGeometry> = {}
@@ -69,12 +70,16 @@ class DiceRenderer {
 			opacity: 1,
 		})
 
+		const gemMaterial = new THREE.ShaderMaterial({
+			fragmentShader: GemShader.fragmentShader,
+		})
+
 		if (runeTex) material.alphaMap = runeTex
 		if (imageTex) material.envMap = imageTex
 
 		material.flatShading = false
 
-		this.diceMesh = new THREE.Mesh(DiceRenderer.diceGeometries[diceType], material)
+		this.diceMesh = new THREE.Mesh(DiceRenderer.diceGeometries[diceType], gemMaterial)
 		this.diceMesh.rotation.x = Math.random() * Math.PI
 		this.diceMesh.rotation.y = Math.random() * Math.PI
 		this.scene.add(this.diceMesh)
