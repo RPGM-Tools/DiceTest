@@ -10,5 +10,12 @@ export default defineConfig(({ }) => {
 				'#root': resolve(__dirname),
 			},
 		},
+		server: {
+			fs: {
+				allow: [
+					'..'
+				]
+			}
+		},
 	}
 })
