@@ -6,7 +6,7 @@
 	<link rel="icon" type="image/svg+xml" href="/DiceTest/vite.svg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Vite + TS</title>
-  <script type="module" crossorigin src="/DiceTest/assets/index-BE2yWh0p.js"></script>
+  <script type="module" crossorigin src="/DiceTest/assets/index-B8KikECQ.js"></script>
 </head>
 
 <body>
@@ -14,25 +14,25 @@
 		<div class="dice-grid">
 			<canvas id="dice-canvas"></canvas>
 			<div data-swapy-slot="1">
-				<div class="dice" data-dice-type="d4" data-swapy-item="1"></div>
+				<button class="dice" data-dice-type="d4" data-swapy-item="1"></button>
 			</div>
 			<div data-swapy-slot="2">
-				<div class="dice" data-dice-type="d6" data-swapy-item="2"></div>
+				<button class="dice" data-dice-type="d6" data-swapy-item="2"></button>
 			</div>
 			<div data-swapy-slot="3">
-				<div class="dice" data-dice-type="d8" data-swapy-item="3"></div>
+				<button class="dice" data-dice-type="d8" data-swapy-item="3"></button>
 			</div>
 			<div data-swapy-slot="4">
-				<div class="dice" data-dice-type="d12" data-swapy-item="4"></div>
+				<button class="dice" data-dice-type="d12" data-swapy-item="4"></button>
 			</div>
 			<div data-swapy-slot="5">
-				<div class="dice" data-dice-type="d20" data-swapy-item="5"></div>
+				<button class="dice" data-dice-type="d20" data-swapy-item="5"></button>
 			</div>
 			<div data-swapy-slot="6">
-				<div class="dice" data-dice-type="d4" data-swapy-item="6"></div>
+				<button class="dice" data-dice-type="d4" data-swapy-item="6"></button>
 			</div>
 			<div data-swapy-slot="7">
-				<div class="dice" data-dice-type="d6" data-swapy-item="7"></div>
+				<button class="dice" data-dice-type="d6" data-swapy-item="7"></button>
 			</div>
 		</div>
 	</div>
@@ -47,25 +47,22 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			pointer-events: none;
+			z-index: 0;
 		}
-
-		div.dice {
-			width: 256px;
-			height: 256px;
-		}
-
-		div {}
 
 		#app {
 			display: flex;
 			justify-content: center;
+			height: 100%;
 		}
 
 		.dice-grid {
 			position: relative;
 			display: flex;
 			flex-wrap: wrap;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
 		}
 
 		.dice {
@@ -73,11 +70,26 @@
 			height: 128px;
 			transition: filter 0.2s;
 			cursor: pointer;
+			background: none;
+			border: none;
+			outline: none;
 		}
 
 		[data-swapy-dragging],
 		.dice:active {
 			filter: brightness(125%);
+		}
+
+		[data-swapy-slot] {
+			position: relative;
+			pointer-events: none;
+		}
+
+		[data-swapy-item] {
+			margin: 2px;
+			background: #ff000044;
+			pointer-events: all;
+			z-index: 1;
 		}
 
 		@media screen and (min-width: 699px) {
